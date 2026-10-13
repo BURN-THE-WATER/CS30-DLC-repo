@@ -1,7 +1,6 @@
 // Changing color circles
 // Kaleb Bourgeois
 // Tuesday, october 13th
-//
 
 //Defiing constants
 const ELLIPSE_DIAMATER = 50;
