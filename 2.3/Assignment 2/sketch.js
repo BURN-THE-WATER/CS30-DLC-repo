@@ -6,11 +6,11 @@ PROGRAM DESCRIPTION: Square following edges example
 
 ******************************************************************************/
 
-let x = 0;  // x location of square
-let y = 0;  // y location of square
+let globalX = 0;  // x location of square
+let globalY = 0;  // y location of square
 let speed = 5;  // speed of square
 let globalState = 0;// A variable to keep track of the square's "state." 
-let frameCounter = 0
+let frameCounter = 0;
 
 //Initalizing colors
 let rValue = 255;
@@ -29,8 +29,7 @@ function setup() {
 }
 
 function draw() {
-  moveSquare(globalState);
-  frameCounter += 1
+  drawSquare(moveSquare(globalX, globalY, globalState));
 }
 
 function drawSquare(x,y) {
@@ -39,40 +38,26 @@ function drawSquare(x,y) {
   square(x,y,width/25);
 }
 
-function moveSquare(state) {
-  if (state === 0) {
-    for (let squareX = 0; squareX <= width-width/25; squareX++) {
-      frameStamp = frameCounter;
-      while frameStamp == frameCounter {
-        background(125,50,50);
-        drawSquare(squareX, 0);
-      }
-    }    
-    globalState = nextState(0);
+function moveSquare(x, y, state) {
+  if (state === 0 && x < width-width/25) {
+    return x += speed, y;
   }
-  else if (state === 1) {
-    for (let squareY = 0; squareY <= height-width/25; squareY++) {
-      background(125,50,50);
-      drawSquare(width-width/25, 0);
-    }
-    globalState = nextState(1);
+  else if (state === 1 && y < height-width/25) {
+    return x, y += speed;
+
   }
-  else if (state === 2) {
-    for (let squareX = width-width/25; squareX >= 0; squareX--) {
-      background(125,50,50);
-      drawSquare(squareX, height-width/25);
-    }
-    globalState = nextState(2);
+  else if (state === 2 && x > 0) {
+    return x-=speed, y;
+
   }
-  else if (state === 3) {
-    for (let squareY = 0; squareY >= 0; squareY--) {
-      background(125,50,50);
-      drawSquare(0, squareY);
-    }
-    globalState = nextState(3);
+  else if (state === 3 && y > 0) {
+    return x, y-=speed;
+
+  }
+  else {
+    nextState(state);
   }
 }
-
 function randomColor() {
   rValue = random(0,255);
   gValue = random(0, 255);
@@ -83,10 +68,10 @@ function randomColor() {
 function nextState(currentState) {
   randomColor();
   if (currentState < 3) {
-    return currentState += 1;
+    globalState += 1;
   }
   else {
-    return 0;
+    globalState = 0;
   }
 }
 
