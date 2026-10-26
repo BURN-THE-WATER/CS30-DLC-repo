@@ -1,7 +1,7 @@
 /*********************************************************************************
-NAME:
-DATE:
-COURSE:
+NAME: Kaleb Bourgeois
+DATE: October 27th, 2026
+COURSE: CS30
 PROGRAM DESCRIPTION: Square following edges example
 
 ******************************************************************************/
@@ -10,24 +10,20 @@ let globalX = 0;  // x location of square
 let globalY = 0;  // y location of square
 let speed = 10;  // speed of square
 let globalState = 0;// A variable to keep track of the square's "state." 
-let frameCounter = 0;
 
 //Initalizing colors
 let rValue = 255;
 let gValue = 255;
 let bValue = 255;
-
- 
-// Depending on the value of its state, it will either move right, down, left, or up.
-//don't forget to scale all of your values with width and height to ensure your program adjusts to custom screen sizes
   
-
+//Setting up the window, target frame rate is 240 because my home computer has 240hz refresh rate
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(125,50,50);
   frameRate(240);
 }
 
+// Draw loop that draws background first, then calcuates the square's position, then draws the square
 function draw() {
   background(125,50,50);
   moveSquare(globalState);
@@ -35,17 +31,19 @@ function draw() {
 
 }
 
+//Drawing a square at a specified x and y with a black stroke
 function drawSquare(x,y) {
   stroke(0);
   fill(rValue, gValue, bValue);
   square(x,y,width/25);
 }
 
+//Depending on the state, change the y or x values accordingly. If the square is at the edge, then change the state and color of the square
 function moveSquare(state) {
   if (state === 0 && globalX < width-width/25) {
     globalX += speed;
   }
-  
+
   else if (state === 1 && globalY < height-width/25) {
     globalY += speed;
   }
@@ -62,6 +60,8 @@ function moveSquare(state) {
     nextState(state);
   }
 }
+
+//Setting color values to random ones
 function randomColor() {
   rValue = random(0,255);
   gValue = random(0, 255);
@@ -69,6 +69,7 @@ function randomColor() {
 
 }
 
+//Setting the state to the next one and randomizing the color
 function nextState(currentState) {
   randomColor();
   if (currentState < 3) {
