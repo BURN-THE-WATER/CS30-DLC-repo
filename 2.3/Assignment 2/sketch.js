@@ -45,18 +45,19 @@ function moveSquare(state) {
   if (state === 0 && globalX < width-width/25) {
     globalX += speed;
   }
+  
   else if (state === 1 && globalY < height-width/25) {
     globalY += speed;
-
   }
+
   else if (state === 2 && globalX > 0) {
     globalX -= speed;
-
   }
+
   else if (state === 3 && globalY > 0) {
     globalY -=speed;
-
   }
+
   else {
     nextState(state);
   }
