@@ -2,7 +2,7 @@
 NAME: Kaleb Bourgeois
 DATE: October 27th, 2026
 COURSE: CS30
-PROGRAM DESCRIPTION: Square following edges example
+PROGRAM DESCRIPTION: Square following edges
 
 ******************************************************************************/
 
@@ -38,22 +38,22 @@ function drawSquare(x,y) {
   square(x,y,width/25);
 }
 
-//Depending on the state, change the y or x values accordingly. If the square is at the edge, then change the state and color of the square
+//Depending on the state, change the y or x values accordingly. If the square is at the edge, then change the state and color of the square. Min/max functions snap the square to the edge of the screen if the square is going to overshoot the edge
 function moveSquare(state) {
   if (state === 0 && globalX < width-width/25) {
-    globalX += speed;
+    globalX = min(speed + globalX, width - width/25);
   }
 
-  else if (state === 1 && globalY < height-width/25) {
-    globalY += speed;
+  else if (state === 1 && globalY < height - width/25) {
+    globalY = min(speed + globalY, height - width/25);
   }
 
   else if (state === 2 && globalX > 0) {
-    globalX -= speed;
+    globalX = max(globalX - speed, 0);
   }
 
   else if (state === 3 && globalY > 0) {
-    globalY -=speed;
+    globalY = max(globalY - speed, 0);
   }
 
   else {
