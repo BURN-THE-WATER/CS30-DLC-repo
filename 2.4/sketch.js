@@ -5,6 +5,7 @@
 
 //nohover31,55,100    hover72,81,99
 
+//TODO: FIX fish rotation, flip images, and add keyboard/mouse controls.
 
 // Import utilize and apply functions to at least one image file
 // Import utilize and apply functions to at least one sound file
@@ -74,7 +75,7 @@ function drawFish() {
   else {
     scale(1, 1);
   }
-  
+
   scale(fishSpeed > 0 ? 1 : -1, 1);
 
   imageMode(CENTER);
