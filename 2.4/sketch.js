@@ -17,13 +17,15 @@ let BUTTONHEIGHT;
 let fontText;
 let fontEmphasis;
 
-function preload() {
-  fontText = loadFont("RedHatMono-VariableFont_wght.ttf");
-  fontEmphasis = loadFont("Micro5-Regular.ttf");
-}
-function setup() {
+// function preload() {
+//   fontText = loadFont("RedHatMono-VariableFont_wght.ttf");
+//   fontEmphasis = loadFont("Micro5-Regular.ttf");
+//}
+async function setup() {
+  
   createCanvas(windowWidth, windowHeight);
-
+  fontText = await loadFont("fonts/RedHatMono-VariableFont_wght.ttf");
+  fontEmphasis = await loadFont("fonts/Micro5-Regular.ttf");
   BUTTONWIDTH = width/4;
   BUTTONHEIGHT = height/12;
 }
