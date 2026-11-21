@@ -4,7 +4,7 @@
 //Fonts, sounds, and images are withn their respective folders
 //Hold the mosue down to double speed, and press space to (roughly) double size
 
-//Resources include: p5.js reference, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator, https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+//Resources include: p5.js reference, tenerary operator source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator, spread operator source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 //Requirements (just to remind me while coding)
 // Import utilize and apply functions to at least one image file
 // Import utilize and apply functions to at least one sound file
