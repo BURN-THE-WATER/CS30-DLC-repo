@@ -4,6 +4,7 @@
 //Fonts, sounds, and images are withn their respective folders
 //Hold the mosue down to double speed, and press space to (roughly) double size
 
+//Requirements (just to remind me while coding)
 // Import utilize and apply functions to at least one image file
 // Import utilize and apply functions to at least one sound file
 // Import utilize and apply functions to at least one font library
