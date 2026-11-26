@@ -5,21 +5,15 @@
 // Write a nested loop to created a checker board as in the examples below. 
 // Checker boards are an 8 x 8 grid with alternating white and black rectangles (squares on a standard board).
 
-
 //Initializing variables
 let squareWidth;
 let squareHeight;
 let squareDimensions;
-let gridSize = 8;
+let gridSize = 8; // MUST be even and included alongside drawGrid();
 
 //Creating canvas and setting variables
 function setup() {
   createCanvas(windowWidth, windowHeight);
-
-  //Setting canvas-dependent variables
-  squareWidth = width / gridSize;
-  squareHeight = height / gridSize;
-  squareDimensions = [squareWidth, squareHeight];
 
   //Using noLoop since a static checkerboard doesn't need to be drawn 60 times per second
   noLoop();
@@ -33,7 +27,9 @@ function draw() {
 
 //Function to draw grid, inverting checker variable every iteration.
 function drawGrid() {
+  canvasIndpnendentSetup(); //NEEDS to be included
   noStroke();
+
   //Starting at the top left corner, move right, then down while setting x and y values accordingly
   //Alternates colors between rows
   //The checker variable is updated in the for-loop expressions rather than the loop bodies.
@@ -47,4 +43,11 @@ function drawGrid() {
       rect(x, y, ...squareDimensions);
     }
   }
+}
+
+//Setting canvas-dependent variables
+function canvasIndpnendentSetup () {
+  squareWidth = width / gridSize;
+  squareHeight = height / gridSize;
+  squareDimensions = [squareWidth, squareHeight];
 }
